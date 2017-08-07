@@ -213,7 +213,7 @@ add_filter( 'the_content', 'baseinstall_responsive_embeds' );
 
 function tekst_wrapper($content) {
   return preg_replace_callback('~<table.*?</table>~is', function($match) {
-    return '<div style="border:1px solid red;">' . $match[0] . '</div>';
+    return '<div class="responsive-table">' . $match[0] . '</div>';
   }, $content);
 }
 
