@@ -206,6 +206,20 @@ function baseinstall_responsive_embeds( $content ) {
 }
 add_filter( 'the_content', 'baseinstall_responsive_embeds' );
 
+
+
+
+
+
+function tekst_wrapper($content) {
+  return preg_replace_callback('~<table.*?</table>~is', function($match) {
+    return '<div style="border:1px solid red;">' . $match[0] . '</div>';
+  }, $content);
+}
+
+add_filter('the_content', 'tekst_wrapper');
+
+
 /**
  * SET GALLERY LINKS TO MEDIA FILE
  * Ensures photo gallery media items will trigger lightbox when clicked
