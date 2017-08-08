@@ -27,6 +27,15 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
+
+        <?php
+        if ( has_post_thumbnail() ) { ?>
+            <div class="featured-image-container">
+                <?php the_post_thumbnail(); ?>
+            </div>
+        <?php } ?>
+
+
 		<?php
 			the_content( sprintf(
 				wp_kses(
