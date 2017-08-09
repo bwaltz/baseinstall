@@ -59,7 +59,7 @@
 				<?php the_archive_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 			<?php elseif ( is_search() ) : ?>
-				<?php echo '<h1 class="entry-title">Search results for: ' . get_search_query() .  '</h1>'; ?>
+				<?php echo '<h1 class="entry-title">Search Results for: ' . get_search_query() .  '</h1>'; ?>
 
 			<?php elseif ( is_home() ) : ?>
 				<h1>Blog</h1>

@@ -347,7 +347,6 @@ add_action('wp_head', 'baseinstall_main_favicon');
  * You can have multiple wrappers (base-single.php, base-page.php, etc.) and they can be overwritten like any other template
  * Based on Scribu and Sage
  */
-/*
 function baseinstall_template_path() {
 	return baseinstall_wrapper::$main_template;
 }
@@ -373,7 +372,7 @@ class baseinstall_wrapper {
 	}
 }
 add_filter( 'template_include', array( 'baseinstall_wrapper', 'wrap' ), 99 );
-*/
+
 
 
 

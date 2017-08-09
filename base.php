@@ -43,7 +43,7 @@
 		
 		<?php wp_head(); ?>
 	</head>
-	<body <?php body_class('sideNavBody'); ?>>
+	<body <?php body_class('site-wrap'); ?>>
 		<div id="page" class="site">
 			<h2 class="screen-reader-text"><?php bloginfo( 'name' ); ?></h2>
 			<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'baseinstall' ); ?></a>
@@ -51,9 +51,20 @@
 			<?php get_header( baseinstall_template_base() ); ?>
 
 			<div id="content-wrap" class="site-content-wrap">
+
 				<?php get_template_part('template-parts/hero'); // hero section ?>
 
 				<div id="content"><?php // open #content ?>
+
+					<?php // experimenting with featured image placement, will likely move this later ?>
+					<?php // if ( has_post_thumbnail() ) { ?>
+						<!-- <div class="container">
+							<div class="featured-image-container"> -->
+								<?php // the_post_thumbnail(); ?>
+							<!-- </div>
+						</div> -->
+					<?php // } ?>
+
 					<?php if ( is_home() && is_front_page() ) : // if front page is set to show latest posts, show this content ?>
 						<div class="site-content">
 							<div id="primary" class="content-area">
