@@ -8,7 +8,7 @@
 // HTML is set to 62.5% for consistent REM measurements
 html {
 	box-sizing: border-box;
-	font-size: 62.5%;
+	// font-size: 62.5%;
 }
 
 // Body class for the login page
@@ -21,8 +21,8 @@ html {
 	// Container of the login form, max-width uses REMs with px fallback
 	#login { 
 		width: 90%; 
-		max-width: 360px; 
-		max-width: 36rem; 
+		max-width: 280px; 
+		max-width: 28rem; 
 	}
 
 	// Login page logo

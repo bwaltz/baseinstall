@@ -206,18 +206,17 @@ function baseinstall_responsive_embeds( $content ) {
 }
 add_filter( 'the_content', 'baseinstall_responsive_embeds' );
 
-
-
-
-
-
-function tekst_wrapper($content) {
+/**
+ * RESPONSIVE TABLES
+ * Filter for adding horizontal scroll wrap around tables
+ */
+function baseinstall_responsive_table($content) {
   return preg_replace_callback('~<table.*?</table>~is', function($match) {
     return '<div class="responsive-table">' . $match[0] . '</div>';
   }, $content);
 }
 
-add_filter('the_content', 'tekst_wrapper');
+add_filter('the_content', 'baseinstall_responsive_table');
 
 
 /**
