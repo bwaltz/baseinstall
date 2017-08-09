@@ -28,11 +28,11 @@ var team                    = 'WPTie <your_email@email.com>'; // Team's Email ID
 var translatePath           = './languages' // Where to save the translation files.
 
 // Style related
-var styleSRC                = './assets/sass/main.scss'; // Path to main .scss file.
+var styleSRC                = './assets/scss/main.scss'; // Path to main .scss file.
 var styleDestination        = './assets/css/'; // Places compiled CSS file in root folder, could also be './assets/css/' or some other folder, just remember to update file path in functions.php
 
 // Admin Style related
-var styleAdminSRC           = './assets/sass/login-style.scss'; // Path to main .scss file.
+var styleAdminSRC           = './assets/scss/login-style.scss'; // Path to main .scss file.
 var styleAdminDestination   = './assets/css/'; // Path to place compiled admin CSS file
 
 // JavaScript related
@@ -61,8 +61,8 @@ var faviconDestination      = './assets/favicons/'; // Destination folder of fav
 var faviconDataFile         = './assets/favicons/faviconData.json'; // File where the favicon markups are stored
 
 // Watch file paths
-var styleWatchFiles         = './assets/sass/**/*.scss'; // Path to all *.scss files inside css folder and inside them
-var styleAdminWatchFiles    = ['./assets/sass/base/*.scss', './assets/sass/login-style.scss'] ; // Path to admin SCSS file
+var styleWatchFiles         = './assets/scss/**/*.scss'; // Path to all *.scss files inside css folder and inside them
+var styleAdminWatchFiles    = ['./assets/scss/base/*.scss', './assets/scss/login-style.scss'] ; // Path to admin SCSS file
 var scriptJSWatchFiles      = ['./assets/js/vendor/*.js', './assets/js/custom/*.js']; // Path to all JS files.
 var projectPHPWatchFiles    = './**/*.php'; // Path to all PHP files.
 
