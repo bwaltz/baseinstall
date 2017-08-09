@@ -16,9 +16,9 @@
     max-width: $width_laptop;
   }
 
-  // @include desktop {
-  //   max-width: $width_desktop;
-  // }
+  @include desktop {
+    max-width: $width_desktop;
+  }
 }
 
 .row {  

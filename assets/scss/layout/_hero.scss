@@ -13,9 +13,9 @@
     @include bgImage;
     @include innerShadow;
 
-    @include tablet {
-        height:50vh;
-    }
+    // @include tablet {
+    //     height:20vh;
+    // }
 
     // full-height header for homepage and single blog posts
     // .single &, 

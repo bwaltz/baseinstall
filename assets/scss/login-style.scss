@@ -5,12 +5,6 @@
 @import "base/variables";
 @import "base/mixins";
 
-// HTML is set to 62.5% for consistent REM measurements
-html {
-	box-sizing: border-box;
-	// font-size: 62.5%;
-}
-
 // Body class for the login page
 .login  {
 	background-color: $color_background_hero;
