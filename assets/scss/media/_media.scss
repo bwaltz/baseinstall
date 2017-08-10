@@ -14,6 +14,11 @@ object {
 	max-width: 100%;
 }
 
+// Make sure logo link wraps around logo image
+.custom-logo-link {
+	display: inline-block;
+}
+
 .video-container {
 	position: relative;
 	padding-bottom: 56.25%; // 16:9 
