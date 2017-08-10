@@ -22,9 +22,8 @@
 					<h1 class="entry-title">Kick-start Your WP Development Workflow</h1>
 					<p>Base Install is a starter theme for WordPress development based on <a href="http://underscores.me/" target="_blank">Underscores</a>. It features a <a href="http://scribu.net/wordpress/theme-wrappers.html" target="_blank">theme wrapper</a>, a <a href="http://getskeleton.com/" target="_blank">responsive grid</a>, and a powerful <a href="https://labs.ahmadawais.com/WPGulp/" target="_blank">Gulp</a> workflow.</p>
 					<a class="button button-primary" href="https://github.com/mikejandreau/Base-Install" target="_blank">View on GitHub</a><a class="button button-primary" href="https://github.com/mikejandreau/Base-Install/archive/master.zip" download="Base_Install">Download ZIP</a>
-
 				</div>
-				
+
 			<?php elseif ( is_single() ) : ?>
 				<?php the_title( '<h1 class="entry-title"><span class="screen-reader-text">Article Title: </span>', '</h1>' ); ?>
 				<div class="blog-author-date">
