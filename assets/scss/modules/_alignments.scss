@@ -15,10 +15,13 @@
 	@include center-block;
 }
 
-.pull-right {
+// utility classes
+.pull-right,
+.float-right {
 	float: right;
 }
 
-.pull-left {
+.pull-left,
+.float-left {
 	float: left;
 }
