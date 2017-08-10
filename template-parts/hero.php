@@ -32,10 +32,11 @@
 					<?php 
 						$temp_post = get_post($post_id);
 						$user_id = $temp_post->post_author;
+						$user_url = get_author_posts_url($user_id);
 						$first_name = get_the_author_meta('first_name',$user_id);
 						$last_name = get_the_author_meta('last_name',$user_id);
 						$full_name = "{$first_name} {$last_name}";
-						echo '<span class="blog-author">by ' . $full_name . ' </span>';
+						echo '<span class="blog-author">by <a href="' . $user_url . '">' . $full_name . '</a></span>';
 					?>
 				</div>
 
