@@ -41,10 +41,10 @@ var scriptSRC             = [
                               // './assets/js/vendor/jquery-2.2.4.js', // Include jQuery if you want
                               './assets/js/vendor/class-helpers.js', // Pure JS class toggling
                               './assets/js/vendor/skip-link-focus-fix.js', // WP skip link
-                              // './assets/js/vendor/prism.js', // syntax highlighter for code blocks (optional, has associated SASS file for styles/themes)
-                              // './assets/js/vendor/autosize.js', // autosize text area in forms to fit content (optional)
+                              './assets/js/vendor/prism.js', // syntax highlighter for code blocks (optional, has associated SASS file for styles/themes)
+                              './assets/js/vendor/autosize.js', // autosize text area in forms to fit content (optional)
                               './assets/js/vendor/baguetteBox.js', // pure js image lightbox & slideshow (optional)
-                              // './assets/js/vendor/isotope-pkgd.js', // category filtering and masonry layouts (optional)
+                              './assets/js/vendor/isotope-pkgd.js', // category filtering and masonry layouts (optional)
                               './assets/js/custom/*.js' // menu-controls.js, scroll-to-top.js, etc.
                             ]; // Path to JS vendor and custom files in order.
 var scriptDestination     = './assets/js/'; // Path to save the compiled JS file.
