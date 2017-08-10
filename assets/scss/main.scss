@@ -12,12 +12,11 @@
 @import "base/lists";
 @import "base/tables";
 
-// TYPOGRAPHY, HEADINGS, COPY, CODE
+// TYPOGRAPHY, HEADINGS, COPY
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 @import "typography/typography";
 @import "typography/headings";
 @import "typography/copy";
-@import "typography/prism"; // code highlighter, default theme - optional
 
 // FORMS
 //––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -59,4 +58,8 @@
 @import "media/media";
 @import "media/captions";
 @import "media/galleries";
-@import "vendor/baguetteBox";
+
+// VENDOR
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+@import "vendor/baguetteBox"; // lightweight popup lightbox, tweaked for WP galleries
+@import "vendor/prism"; // code highlighter, default theme - optional
