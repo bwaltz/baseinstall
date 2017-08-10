@@ -20,6 +20,7 @@
     // full-height header for homepage and single blog posts
     // .single &, 
     .home & {
+        min-height: 48rem;
         // height:100vh;
         height: calc(100vh - 60px); // 60px header height
     }
