@@ -13,7 +13,7 @@
 	margin: 0 0 ($column_margin * 2);
 }
 
-.byline,
+// .byline, // author name and link in blog posts
 .updated:not(.published){
 	display: none;
 }
