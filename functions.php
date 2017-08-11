@@ -218,7 +218,6 @@ function baseinstall_responsive_table($content) {
 
 add_filter('the_content', 'baseinstall_responsive_table');
 
-
 /**
  * SET GALLERY LINKS TO MEDIA FILE
  * Ensures photo gallery media items will trigger lightbox when clicked
