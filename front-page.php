@@ -114,114 +114,6 @@
 				// END SAMPLE MARKUP 
 				?>
 
-
-
-
-
-
-
-  <!-- <div class="feature portfolio-feature">
-      <h2>Portfolio</h2>
-      <div class="row"> -->
-        <?php 
-        // $args = array( 'post_type' => 'portfolio', 'posts_per_page' => 4 );
-        // $loop = new WP_Query( $args );
-
-        // while ( $loop->have_posts() ) : $loop->the_post();
-        //   echo '<div class="column sm-6 lg-3">';
-        //   echo '<a href="' . get_permalink() . '"><img src="' . get_the_post_thumbnail() . '</a>';
-        //   echo '<h3><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>';
-        //   echo '<p>' . get_the_excerpt() . '</p>';
-        //   echo '</div>';
-        // endwhile;
-        ?>
-      <!-- </div>
-      <a class="button button-primary" href="<?php // echo get_post_type_archive_link( 'portfolio' ); ?>">View All of Our Horses</a>
-  </div> -->
-<?php // wp_reset_query(); ?>
-
-
-
-<?php // the filter buttons can be used for all categories, or for specific category or post type ?>
-<div class="button-group filter-buttons">
-  <button class="button is-checked" data-filter="*">Show All</button>
-  <?php 
-    // $terms = get_terms("category"); // get all categories, but you can use any taxonomy
-    // $terms = get_terms('category', array('parent' => 37)); // get specific parent category by ID
-    $terms = get_terms("portfolio-categories"); // get portfolio items, taxonomy set in functions.php
-    $count = count($terms); //How many are they?
-    if ( $count > 0 ){  //If there are more than 0 terms
-      foreach ( $terms as $term ) {  //for each term:
-        echo "<button data-filter='.".$term->slug."'>" . $term->name . "</button>\n";
-        //create a list item with the current term slug for sorting, and name for label
-      }
-    }
-  ?>
-</div>
-
-
-
-
-<div class="grid row"> 
-
-  <?php // Query all posts
-    // $the_query = new WP_Query( 'posts_per_page=100' );
-    // if ( $the_query->have_posts() ) : 
-    //   while ( $the_query->have_posts() ) : $the_query->the_post(); 
-    //     $termsArray = get_the_terms( $post->ID, "category" );  //Get the terms for this particular item
-    //     $termsString = ""; //initialize the string that will contain the terms
-    //     foreach ( $termsArray as $term ) { // for each term 
-    //       $termsString .= $term->slug.' '; //create a string that has all the slugs 
-    //     }
-    //     echo '<div class="element-item column md-6 lg-4 '. $termsString .'"><div class="element-block">';
-    //     echo '<h2>'. the_title() .'</h2>';
-    //     echo '<a href="'. get_permalink() .'">';
-    //       if ( has_post_thumbnail() ) { 
-    //         the_post_thumbnail();
-    //       } 
-    //     echo '</a>'; 
-    //     echo '<div>'. the_excerpt() .'</div>';
-    //     echo '</div></div>'; 
-    //   endwhile;
-    // endif; 
-  ?>
-
-  <?php // Query the custom post type only
-    $args = array( 'post_type' => 'portfolio', 'posts_per_page' => -1 );
-    $loop = new WP_Query( $args );
-    while ( $loop->have_posts() ) : $loop->the_post(); 
-      /* pull category for each unique post using the ID  */
-      $terms = get_the_terms( $post->ID, 'portfolio-categories' ); 
-      if ( $terms && ! is_wp_error( $terms ) ) : 
-        $links = array();
-        foreach ( $terms as $term ) {
-          $links[] = $term->name;
-        }
-        $tax_links = join( " ", str_replace(' ', '-', $links));          
-        $tax = strtolower($tax_links);
-      else : 
-        $tax = '';         
-      endif; 
-      /* Insert category name into portfolio-item class */ 
-      echo '<div class="element-item column md-6 lg-4 '. $tax .'"><div class="element-block">';
-      echo '<a href="'. get_permalink() .'">';
-      echo '<div class="thumbnail">'. the_post_thumbnail() .'</div>';
-      echo '</a>'; 
-      echo the_title( '<h3>', '</h3>' );
-      echo the_excerpt();
-      echo '<a class="button" href="' . get_permalink( get_the_ID() ) . '">View Project</a>';
-      echo '</div></div>'; 
-    endwhile; 
-  ?>
-</div>
-
-
-  <a class="button button-primary" href="<?php echo get_post_type_archive_link( 'portfolio' ); ?>">View All</a>
-
-
-
-
-
 			</main>
 		</div>
 		<?php get_sidebar( baseinstall_template_base() ); ?>
@@ -336,6 +228,121 @@
 			</div>
 		</div>
 	</div>
+
+
+
+
+
+
+
+
+
+	<div class="section">
+		<div class="container">
+			<div class="row">
+
+				<div class="column sm-12">
+					<h2>Recent Work</h2>
+
+					<!-- <div class="feature portfolio-feature">
+						<h2>Portfolio</h2>
+						<div class="row"> -->
+							<?php 
+								// $args = array( 'post_type' => 'portfolio', 'posts_per_page' => 4 );
+								// $loop = new WP_Query( $args );
+
+								// while ( $loop->have_posts() ) : $loop->the_post();
+								// echo '<div class="column sm-6 lg-3">';
+								// echo '<a href="' . get_permalink() . '"><img src="' . get_the_post_thumbnail() . '</a>';
+								// echo '<h3><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>';
+								// echo '<p>' . get_the_excerpt() . '</p>';
+								// echo '</div>';
+								// endwhile;
+							?>
+						<!-- </div>
+						<a class="button button-primary" href="<?php // echo get_post_type_archive_link( 'portfolio' ); ?>">View All of Our Horses</a>
+					</div> -->
+					<?php // wp_reset_query(); ?>
+
+					<?php // the filter buttons can be used for all categories, or for specific category or post type ?>
+					<div class="button-group filter-buttons">
+					  <button class="is-checked" data-filter="*">Show All</button>
+					  <?php 
+					    // $terms = get_terms("category"); // get all categories, but you can use any taxonomy
+					    // $terms = get_terms('category', array('parent' => 37)); // get specific parent category by ID
+					    $terms = get_terms("portfolio-categories"); // get portfolio items, taxonomy set in functions.php
+					    $count = count($terms); //How many are they?
+					    if ( $count > 0 ){  //If there are more than 0 terms
+					      foreach ( $terms as $term ) {  //for each term:
+					        echo "<button data-filter='.".$term->slug."'>" . $term->name . "</button>\n";
+					        //create a list item with the current term slug for sorting, and name for label
+					      }
+					    }
+					  ?>
+					</div>
+
+					<div class="grid row"> 
+					  <?php // Query all posts
+					    // $the_query = new WP_Query( 'posts_per_page=100' );
+					    // if ( $the_query->have_posts() ) : 
+					    //   while ( $the_query->have_posts() ) : $the_query->the_post(); 
+					    //     $termsArray = get_the_terms( $post->ID, "category" );  //Get the terms for this particular item
+					    //     $termsString = ""; //initialize the string that will contain the terms
+					    //     foreach ( $termsArray as $term ) { // for each term 
+					    //       $termsString .= $term->slug.' '; //create a string that has all the slugs 
+					    //     }
+					    //     echo '<div class="element-item column md-6 lg-4 '. $termsString .'"><div class="element-block">';
+					    //     echo '<h2>'. the_title() .'</h2>';
+					    //     echo '<a href="'. get_permalink() .'">';
+					    //       if ( has_post_thumbnail() ) { 
+					    //         the_post_thumbnail();
+					    //       } 
+					    //     echo '</a>'; 
+					    //     echo '<div>'. the_excerpt() .'</div>';
+					    //     echo '</div></div>'; 
+					    //   endwhile;
+					    // endif; 
+					  ?>
+
+					  <?php // Query the custom post type only
+					    $args = array( 'post_type' => 'portfolio', 'posts_per_page' => -1 );
+					    $loop = new WP_Query( $args );
+					    while ( $loop->have_posts() ) : $loop->the_post(); 
+					      /* pull category for each unique post using the ID  */
+					      $terms = get_the_terms( $post->ID, 'portfolio-categories' ); 
+					      if ( $terms && ! is_wp_error( $terms ) ) : 
+					        $links = array();
+					        foreach ( $terms as $term ) {
+					          $links[] = $term->name;
+					        }
+					        $tax_links = join( " ", str_replace(' ', '-', $links));          
+					        $tax = strtolower($tax_links);
+					      else : 
+					        $tax = '';         
+					      endif; 
+					      /* Insert category name into portfolio-item class */ 
+					      echo '<div class="element-item column md-6 lg-4 '. $tax .'"><div class="element-block">';
+					      echo '<a href="'. get_permalink() .'">';
+					      echo the_post_thumbnail();
+					      echo '</a>'; 
+					      echo the_title( '<h3>', '</h3>' );
+					      echo the_excerpt();
+					      echo '<a class="button" href="' . get_permalink( get_the_ID() ) . '">View Project</a>';
+					      echo '</div></div>'; 
+					    endwhile; 
+					  ?>
+					</div>
+
+					<a class="button button-primary" href="<?php echo get_post_type_archive_link( 'portfolio' ); ?>">View All</a>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
 
 	<div class="blog-section">
 		<div class="container">

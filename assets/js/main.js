@@ -1329,7 +1329,7 @@ Prism.hooks.add('complete', function (env) {
 });
 
 }());
-/*!
+/* 
 	Autosize 4.0.0
 	license: MIT
 	http://www.jacklmoore.com/autosize
@@ -1628,7 +1628,7 @@ Prism.hooks.add('complete', function (env) {
 */
 autosize(document.querySelectorAll('textarea'));
 
-/*!
+/* 
  * baguetteBox.js
  * @author  feimosi
  * @version %%INJECT_VERSION%%
@@ -2340,7 +2340,7 @@ autosize(document.querySelectorAll('textarea'));
     };
 }));
 
-/*!
+/* 
  * Isotope PACKAGED v3.0.4
  *
  * Licensed GPLv3 for open source use
@@ -10598,41 +10598,39 @@ if (isotopeGridBlock.length > 0) {
     // }
   });
 
+}
 
+// bind filter button click
+var filtersElem = document.querySelector('.filter-buttons');
+filtersElem.addEventListener( 'click', function( event ) {
+  "use strict";
+  // only work with buttons
+  if ( !matchesSelector( event.target, 'button' ) ) {
+    return;
+  }
+  var filterValue = event.target.getAttribute('data-filter');
+  // use matching filter function
+  // filterValue = filterFns[ filterValue ] || filterValue;
+  iso.arrange({ filter: filterValue });
+});
 
-  // bind filter button click
-  var filtersElem = document.querySelector('.filter-buttons');
-  filtersElem.addEventListener( 'click', function( event ) {
-    "use strict";
+// change is-checked class on buttons
+var buttonGroups = document.querySelectorAll('.button-group');
+for ( var i=0, len = buttonGroups.length; i < len; i++ ) {
+  var buttonGroup = buttonGroups[i];
+  radioButtonGroup( buttonGroup );
+}
+
+function radioButtonGroup( buttonGroup ) {
+  "use strict";
+  buttonGroup.addEventListener( 'click', function( event ) {
     // only work with buttons
     if ( !matchesSelector( event.target, 'button' ) ) {
       return;
     }
-    var filterValue = event.target.getAttribute('data-filter');
-    // use matching filter function
-    // filterValue = filterFns[ filterValue ] || filterValue;
-    iso.arrange({ filter: filterValue });
+    buttonGroup.querySelector('.is-checked').classList.remove('is-checked');
+    event.target.classList.add('is-checked');
   });
-
-  // change is-checked class on buttons
-  var buttonGroups = document.querySelectorAll('.button-group');
-  for ( var i=0, len = buttonGroups.length; i < len; i++ ) {
-    var buttonGroup = buttonGroups[i];
-    radioButtonGroup( buttonGroup );
-  }
-
-  function radioButtonGroup( buttonGroup ) {
-    "use strict";
-    buttonGroup.addEventListener( 'click', function( event ) {
-      // only work with buttons
-      if ( !matchesSelector( event.target, 'button' ) ) {
-        return;
-      }
-      buttonGroup.querySelector('.is-checked').classList.remove('is-checked');
-      event.target.classList.add('is-checked');
-    });
-  }
-
 }
 
 /**

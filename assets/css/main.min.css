@@ -348,15 +348,14 @@ body{font-family:sans-serif}
 .carousel-cell h2{position:absolute;top:50%;-webkit-transform:translate(0,-50%);-ms-transform:translate(0,-50%);transform:translate(0,-50%);text-transform:uppercase;width:100%;left:0;text-align:center;display:block;color:#fff}
 .filter-buttons button{display:inline-block;padding:0;margin:10px 0;background:transparent;border:0;color:#222;font-size:16px;font-size:1.6rem;text-transform:none;line-height:24px;cursor:pointer;border-bottom:1px solid transparent;-webkit-transition:border-color .3s;transition:border-color .3s;border-radius:0}
 .filter-buttons button+button{margin-left:20px}
-.filter-buttons button:hover{color:#222;border-bottom:1px solid #ccc}
+.filter-buttons button:hover{border-color:#ccc}
 .filter-buttons button:focus{outline:0}
-.filter-buttons button.is-checked{color:#222;border-bottom:1px solid #222}
+.filter-buttons button.is-checked{border-color:#222}
+.button-group{margin-bottom:20px}
 .button-group:after{content:'';display:block;clear:both}
-.center-text{text-align:center}
-.button-group{margin-bottom:40px}
-.button-group .button,.button-group .more-link{display:inline-block;border-radius:0}
 .element-item{color:#262524;margin-bottom:40px}
 .element-block{background-color:tan;padding:20px}
+.grid{-webkit-transition:height .3s;transition:height .3s;-webkit-animation-delay:.3s;animation-delay:.3s}
 .grid:after{content:"";display:table;table-layout:fixed;clear:both}
 pre{padding:24px}
 pre[rel]{padding:48px 0 0}
