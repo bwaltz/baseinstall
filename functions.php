@@ -187,6 +187,11 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 require get_template_directory() . '/inc/nav-walker.php';
 
 /*
+ * Custom post type for Portfolio Items
+ */
+require get_template_directory() . '/inc/custom-post-portfolio.php';
+
+/*
  * Load the theme options page.
  */
 require get_template_directory() . '/inc/theme-options/theme-options.php';
