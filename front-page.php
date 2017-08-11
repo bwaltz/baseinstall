@@ -144,7 +144,7 @@
 
 <?php // the filter buttons can be used for all categories, or for specific category or post type ?>
 <div class="button-group filter-buttons">
-  <button class="button is-checked" data-filter="*">show all</button>
+  <button class="button is-checked" data-filter="*">Show All</button>
   <?php 
     // $terms = get_terms("category"); // get all categories, but you can use any taxonomy
     // $terms = get_terms('category', array('parent' => 37)); // get specific parent category by ID

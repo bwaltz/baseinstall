@@ -1,0 +1,101 @@
+// Isotope masonry and filtering styles
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// button 
+.filter-buttons {
+
+  button {
+    display: inline-block;
+    padding: 0;
+    margin: 10px 0;
+    background: transparent;
+    border: none;
+    color: #222;
+    @include font-size(1.6);
+    text-transform: none;
+    line-height: 24px;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+    transition: border-color .3s;
+    border-radius: 0;
+
+    & + button {
+      margin-left: $column_margin;
+    }
+  }
+
+  button:hover {
+    /*   background-color: #ddd; */
+    color: #222;
+    border-bottom: 1px solid #ccc;
+  }
+
+  button:focus {
+    outline: none;
+  }
+/* .button:active,
+.button.is-checked {
+  background-color: #eee;
+  } */
+
+  button.is-checked {
+    color: #222;
+    border-bottom: 1px solid #222;
+  }
+
+/* .button:active {
+  box-shadow: inset 0 1px 10px hsla(0, 0%, 0%, 0.8);
+  } */
+}
+
+
+
+
+// button-group
+.button-group:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.center-text {
+  text-align: center;
+}
+
+.button-group {
+  margin-bottom: 40px;
+}
+
+.button-group .button {
+  // float: left;
+  display: inline-block;
+  border-radius: 0;
+  // margin: 0;
+}
+
+
+
+
+// .element-item 
+.element-item {
+// position: relative; 
+// float: left; 
+// width: 100px; 
+// height: 100px; 
+// margin: 0; 
+// padding: 0; 
+// background: #888; 
+  color: #262524;
+  margin-bottom: 40px;
+}
+
+.element-block {
+  background-color: tan;
+  padding: 20px;
+}
+
+.grid:after {
+  content: "";
+  display: table;
+  table-layout: fixed;
+  clear: both;
+}
