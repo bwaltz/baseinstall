@@ -1,4 +1,4 @@
-/*!
+/* 
 	Autosize 4.0.0
 	license: MIT
 	http://www.jacklmoore.com/autosize

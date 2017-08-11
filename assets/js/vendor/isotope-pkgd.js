@@ -1,4 +1,4 @@
-/*!
+/* 
  * Isotope PACKAGED v3.0.4
  *
  * Licensed GPLv3 for open source use

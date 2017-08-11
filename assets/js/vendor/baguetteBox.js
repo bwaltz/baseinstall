@@ -1,4 +1,4 @@
-/*!
+/* 
  * baguetteBox.js
  * @author  feimosi
  * @version %%INJECT_VERSION%%
