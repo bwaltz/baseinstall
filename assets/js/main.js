@@ -2340,42 +2340,6 @@ autosize(document.querySelectorAll('textarea'));
     };
 }));
 
-
-
-
-
-/**
-* LIGHTBOX SLIDESHOW
-* Trigger JavaScript slideshow using baguetteBox.js, no jQuery required
-* If screen is smaller than 800px, hide left/right arrow buttons and use swipe
-*/ 
-
-// Find all instances of .gallery
-var baguetteBoxGallery = document.getElementsByClassName('gallery');
-
-// Iterate through all instances of .gallery to add .baguetteBox
-for (var i = 0; i < baguetteBoxGallery.length; i++) {
-    // add the unique class to eliminate conflicts with multiple galleries
-    baguetteBoxGallery[i].classList.add("baguetteBox" + (i+1));
-}
-
-// Run up to 3 instances of slideshow on a single page
-// Follow the pattern to have more or less if needed
-var baguetteBoxOne = document.getElementsByClassName('baguetteBox1');
-if (baguetteBoxOne.length > 0) {
-    baguetteBox.run('.baguetteBox1');
-}
-
-var baguetteBoxTwo = document.getElementsByClassName('baguetteBox2');
-if (baguetteBoxTwo.length > 0) {
-    baguetteBox.run('.baguetteBox2');
-}
-
-var baguetteBoxThree = document.getElementsByClassName('baguetteBox3');
-if (baguetteBoxThree.length > 0) {
-    baguetteBox.run('.baguetteBox3');
-}
-
 /*!
  * Isotope PACKAGED v3.0.4
  *
@@ -5934,6 +5898,93 @@ var trim = String.prototype.trim ?
 
 }));
 
+
+/**
+* LIGHTBOX SLIDESHOW
+* Trigger JavaScript slideshow using baguetteBox.js, no jQuery required
+* If screen is smaller than 800px, hide left/right arrow buttons and use swipe
+*/ 
+
+// Find all instances of .gallery
+var baguetteBoxGallery = document.getElementsByClassName('gallery');
+
+// Iterate through all instances of .gallery to add .baguetteBox
+for (var i = 0; i < baguetteBoxGallery.length; i++) {
+    // add the unique class to eliminate conflicts with multiple galleries
+    baguetteBoxGallery[i].classList.add("baguetteBox" + (i+1));
+}
+
+// Run up to 3 instances of slideshow on a single page
+// Follow the pattern to have more or less if needed
+var baguetteBoxOne = document.getElementsByClassName('baguetteBox1');
+if (baguetteBoxOne.length > 0) {
+    baguetteBox.run('.baguetteBox1');
+}
+
+var baguetteBoxTwo = document.getElementsByClassName('baguetteBox2');
+if (baguetteBoxTwo.length > 0) {
+    baguetteBox.run('.baguetteBox2');
+}
+
+var baguetteBoxThree = document.getElementsByClassName('baguetteBox3');
+if (baguetteBoxThree.length > 0) {
+    baguetteBox.run('.baguetteBox3');
+}
+
+/**
+* ISOTOPE MASONRY & FILTERING
+* Trigger Isotope layouts with isotope-pkgd.js
+*/
+
+// Run Isotope if .grid is present 
+var isotopeGridBlock = document.getElementsByClassName('grid');
+
+if (isotopeGridBlock.length > 0) {
+
+  var iso = new Isotope( '.grid', {
+    itemSelector: '.element-item',
+    layoutMode: 'fitRows'
+    // masonry: {
+    //   columnWidth: 50
+    // }
+  });
+
+
+
+  // bind filter button click
+  var filtersElem = document.querySelector('.filter-buttons');
+  filtersElem.addEventListener( 'click', function( event ) {
+    "use strict";
+    // only work with buttons
+    if ( !matchesSelector( event.target, 'button' ) ) {
+      return;
+    }
+    var filterValue = event.target.getAttribute('data-filter');
+    // use matching filter function
+    // filterValue = filterFns[ filterValue ] || filterValue;
+    iso.arrange({ filter: filterValue });
+  });
+
+  // change is-checked class on buttons
+  var buttonGroups = document.querySelectorAll('.button-group');
+  for ( var i=0, len = buttonGroups.length; i < len; i++ ) {
+    var buttonGroup = buttonGroups[i];
+    radioButtonGroup( buttonGroup );
+  }
+
+  function radioButtonGroup( buttonGroup ) {
+    "use strict";
+    buttonGroup.addEventListener( 'click', function( event ) {
+      // only work with buttons
+      if ( !matchesSelector( event.target, 'button' ) ) {
+        return;
+      }
+      buttonGroup.querySelector('.is-checked').classList.remove('is-checked');
+      event.target.classList.add('is-checked');
+    });
+  }
+
+}
 
 /**
 * MOBILE NAVIGATION
