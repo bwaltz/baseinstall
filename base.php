@@ -54,6 +54,19 @@
 
 				<?php get_template_part('template-parts/hero'); // hero section ?>
 
+
+
+
+<!-- Flickity HTML init -->
+<!-- <div class="carousel" data-flickity='{ "wrapAround": true }'>
+  <div class="carousel-cell" style="background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg');"><h2>bloop</h2></div>
+  <div class="carousel-cell" style="background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg');"><h2>bloop</h2></div>
+  <div class="carousel-cell" style="background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg');"><h2>bloop</h2></div>
+  <div class="carousel-cell" style="background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg');"><h2>bloop</h2></div>
+  <div class="carousel-cell" style="background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg');"><h2>bloop</h2></div>
+  <div class="carousel-cell" style="background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg');"><h2>bloop</h2></div>
+</div> -->
+
 				<div id="content"><?php // open #content ?>
 
 					<?php // experimenting with featured image placement, will likely move this later ?>
@@ -96,6 +109,7 @@
 			
 		</div><?php // close #page ?>
 		<?php wp_footer(); ?>
+
 	</body>
 </html>
 

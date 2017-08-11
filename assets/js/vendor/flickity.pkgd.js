@@ -1,4 +1,4 @@
-/*!
+/*
  * Flickity PACKAGED v2.0.9
  * Touch, responsive, flickable carousels
  *
@@ -176,6 +176,7 @@ return jQueryBridget;
   }
 
 }( typeof window != 'undefined' ? window : this, function() {
+    'use strict';
 
 
 
@@ -241,7 +242,7 @@ proto.emitEvent = function( eventName, args ) {
   var onceListeners = this._onceEvents && this._onceEvents[ eventName ];
 
   for ( var i=0; i < listeners.length; i++ ) {
-    var listener = listeners[i]
+    var listener = listeners[i];
     var isOnce = onceListeners && onceListeners[ listener ];
     if ( isOnce ) {
       // remove listener
@@ -563,6 +564,7 @@ return getSize;
   }
 
 }( window, function factory( window, matchesSelector ) {
+    'use strict';
 
 
 
@@ -796,6 +798,7 @@ return utils;
   }
 
 }( window, function factory( window, getSize ) {
+    'use strict';
 
 
 
@@ -964,6 +967,7 @@ return Slide;
   }
 
 }( window, function factory( window, utils ) {
+    'use strict';
 
 
 
@@ -1201,6 +1205,7 @@ return proto;
 
 }( window, function factory( window, EvEmitter, getSize,
   utils, Cell, Slide, animatePrototype ) {
+    'use strict';
 
 
 
@@ -2046,6 +2051,7 @@ return Flickity;
   }
 
 }( window, function factory( window, EvEmitter ) {
+    'use strict';
 
 
 
@@ -2343,6 +2349,7 @@ return Unipointer;
   }
 
 }( window, function factory( window, Unipointer ) {
+    'use strict';
 
 
 
@@ -2613,6 +2620,7 @@ return Unidragger;
   }
 
 }( window, function factory( window, Flickity, Unidragger, utils ) {
+    'use strict';
 
 
 
@@ -3006,6 +3014,7 @@ return Flickity;
   }
 
 }( window, function factory( window, Unipointer ) {
+    'use strict';
 
 
 
@@ -3339,6 +3348,7 @@ return Flickity;
   }
 
 }( window, function factory( window, Flickity, TapListener, utils ) {
+    'use strict';
 
 // -------------------------- PageDots -------------------------- //
 
@@ -3516,6 +3526,7 @@ return Flickity;
   }
 
 }( window, function factory( EvEmitter, utils, Flickity ) {
+    'use strict';
 
 
 
@@ -3729,6 +3740,7 @@ return Flickity;
   }
 
 }( window, function factory( window, Flickity, utils ) {
+    'use strict';
 
 
 
@@ -4077,6 +4089,7 @@ return Flickity;
   }
 
 }( window, function factory( Flickity, utils ) {
+    'use strict';
 
 
 
@@ -4234,6 +4247,7 @@ return Flickity;
 // --------------------------  factory -------------------------- //
 
 function factory( window, EvEmitter ) {
+    'use strict';
 
 
 
