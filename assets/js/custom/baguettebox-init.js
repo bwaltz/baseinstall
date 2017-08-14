@@ -29,3 +29,8 @@ var baguetteBoxThree = document.getElementsByClassName('baguetteBox3');
 if (baguetteBoxThree.length > 0) {
     baguetteBox.run('.baguetteBox3');
 }
+
+var baguetteBoxFour = document.getElementsByClassName('baguetteBox4');
+if (baguetteBoxFour.length > 0) {
+    baguetteBox.run('.baguetteBox4');
+}

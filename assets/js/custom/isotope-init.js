@@ -3,11 +3,11 @@
 * Trigger Isotope layouts with isotope-pkgd.js
 */
 
-// Run Isotope if .grid is present 
+// Find .grid in DOM
 var isotopeGridBlock = document.getElementsByClassName('grid');
 
+// Run Isotope if .grid is present 
 if (isotopeGridBlock.length > 0) {
-
   var iso = new Isotope( '.grid', {
     itemSelector: '.element-item',
     layoutMode: 'fitRows'
@@ -15,22 +15,23 @@ if (isotopeGridBlock.length > 0) {
     //   columnWidth: 50
     // }
   });
-
 }
 
 // bind filter button click
 var filtersElem = document.querySelector('.filter-buttons');
-filtersElem.addEventListener( 'click', function( event ) {
-  "use strict";
-  // only work with buttons
-  if ( !matchesSelector( event.target, 'button' ) ) {
-    return;
-  }
-  var filterValue = event.target.getAttribute('data-filter');
-  // use matching filter function
-  // filterValue = filterFns[ filterValue ] || filterValue;
-  iso.arrange({ filter: filterValue });
-});
+if(filtersElem){ // check to see if filtersElem is not null, then add event listenter
+  filtersElem.addEventListener( 'click', function( event ) {
+    "use strict";
+    // only work with buttons
+    if ( !matchesSelector( event.target, 'button' ) ) {
+      return;
+    }
+    var filterValue = event.target.getAttribute('data-filter');
+    // use matching filter function
+    // filterValue = filterFns[ filterValue ] || filterValue;
+    iso.arrange({ filter: filterValue });
+  });
+}
 
 // change is-checked class on buttons
 var buttonGroups = document.querySelectorAll('.button-group');
@@ -50,3 +51,6 @@ function radioButtonGroup( buttonGroup ) {
     event.target.classList.add('is-checked');
   });
 }
+
+
+
