@@ -23,7 +23,8 @@
 			comments_template();
 			endif; */
 		endwhile; // End of the loop.
-		the_posts_navigation(); // If front page is set to show latest posts, get the post navigation
+		// the_posts_navigation(); // If front page is set to show latest posts, get the default post navigation
+		baseinstall_numeric_posts_nav(); // Numbered pagination links
 	?>
 
 <?php else : // If front page is set to show a static page, show this markup before content area ?>
@@ -39,7 +40,7 @@
 						comments_template();
 						endif; */
 					endwhile; // End of the loop.
-					the_posts_navigation(); // If front page is set to show latest posts, get the post navigation
+					// the_posts_navigation(); // If front page is set to show latest posts, get the post navigation
 				?>
 
 

@@ -31,7 +31,8 @@
 
 		endwhile;
 
-		the_posts_navigation();
+		// the_posts_navigation(); // Default posts navigation links
+		baseinstall_numeric_posts_nav(); // Numbered pagination links
 
 	else :
 

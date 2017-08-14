@@ -152,6 +152,13 @@ input:-webkit-autofill{-webkit-animation-name:autofill;-webkit-animation-fill-mo
 .sub-menu li:first-of-type{margin-top:0}
 .sub-menu li:last-of-type{margin-bottom:0}
 .sub-menu a{white-space:nowrap}
+.pagination ul{padding:0}
+.pagination li{display:inline}
+.pagination a{cursor:pointer;text-align:center;display:inline-block;background-color:transparent;text-transform:uppercase;text-decoration:none;white-space:nowrap;letter-spacing:.1rem;line-height:40px;height:40px;padding:0 10px;font-weight:300;margin-bottom:1rem;font-size:14px;font-size:1.4rem;color:#404040;border-radius:4px;border:1px solid #c0c5ce;-webkit-transition:.3s;transition:.3s}
+.pagination a:visited{color:#404040}
+.pagination a:hover{color:#272727;border-color:#8790a1}
+.pagination a:active,.pagination a:focus{border-color:#555e6d}
+.pagination .active a{color:#fff;background-color:#637b92}
 button.menu-toggle{display:block;z-index:9000;overflow:hidden;margin:0;padding:0;width:30px;height:60px;font-size:0;text-indent:-9999px;-webkit-appearance:none;-moz-appearance:none;appearance:none;box-shadow:none;border-radius:0;border:0;cursor:pointer;float:right;position:relative;background-color:transparent}
 button.menu-toggle:focus{outline:0}
 button.menu-toggle:hover,button.menu-toggle:focus{background-color:transparent;border-color:transparent;box-shadow:none}

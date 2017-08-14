@@ -36,7 +36,9 @@
 
 		endwhile;
 
-		the_posts_navigation();
+		// the_posts_navigation();
+		// baseinstall_numbered_pagination();
+		baseinstall_numeric_posts_nav(); // Use numbered pagination links instead of default previous-next above
 
 	else :
 
