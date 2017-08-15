@@ -62,18 +62,18 @@ $button_color_border: #c0c5ce;
 
 // Fonts
 // Currently the font files are located in assets/fonts, feel free to update as needed
-// Default is Roboto, a nice sans-serif font family
+// Default is Montserrat Light, a nice sans-serif font family
 //––––––––––––––––––––––––––––––––––––––––––––––––––
-$font_main: 'montserratextralight', sans-serif;
+$font_main: 'montserratlight', sans-serif;
 $font_headings: 'montserratlight', sans-serif;
-// $font_main: 'robotoregular', sans-serif;
-// $font_headings: 'robotobold', sans-serif;
+// $font_main: 'robotoregular', sans-serif; // uncomment in base/fonts.scss
+// $font_headings: 'robotobold', sans-serif; // uncomment in base/fonts.scss
 // $font_main: 'roboto_slabregular', serif; // If you prefer serif typefaces,
 // $font_headings: 'roboto_slabbold', serif; // Roboto Slab is included for a quick A/B test
 $font_code: 'Source Code Pro', Monaco, Consolas, monospace;
 $font_pre: 'Source Code Pro', Monaco, Consolas, monospace;
 $font_weight_main: 400;
-$font_weight_headings: 300;
+$font_weight_headings: 400;
 $font_weight_pre: 400;
 $font_line_height_body: 1.8;
 $font_line_height_headings: 1.4;
