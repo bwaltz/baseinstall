@@ -39,6 +39,10 @@
 	margin-bottom: 1.5em;
 }
 
+.blog-author-date {
+	margin-top: 1rem;
+}
+
 // Post spacing for lists of posts
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 article + article {
@@ -188,6 +192,7 @@ article + article {
 	}
 
 	.blog-author-date {
+		margin-top: 0;
 		margin-bottom: 1rem;
 	}
 
