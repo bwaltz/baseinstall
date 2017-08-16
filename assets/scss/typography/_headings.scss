@@ -16,16 +16,6 @@ h1, h2, h3, h4, h5, h6 {
 	// .entry-header & {
 	// 	margin-bottom: 0.5rem;
 	// }
-
-	// .hero &,
-	// .single & {
-	// 	line-height: 1.2;
-	// 	margin-bottom: 0;
-
-	// 	@include phablet {
-	// 		line-height: $font_line_height_headings;
-	// 	}
-	// }
 }
 
 // Heading font sizes, calculated based on default font size
@@ -39,6 +29,7 @@ h1 {
 
 	.hero & {
 		margin-bottom: 0;
+<<<<<<< HEAD
 	}
 
 	.home & {
@@ -55,6 +46,24 @@ h2 {
 	}
 }
 
+=======
+		line-height: 1.2;
+	}
+
+	.home & {
+		margin-bottom: 1.5rem;
+	}
+}
+
+h2 { 
+	@include font-size(3.0);
+
+	@include tablet {
+		@include font-size(3.6);
+	}
+}
+
+>>>>>>> origin/master
 h3 { @include font-size(2.4); }
 h4 { @include font-size(2.0); }
 h5 { @include font-size(1.8); }
