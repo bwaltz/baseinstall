@@ -76,7 +76,7 @@ $font_weight_main: 400;
 $font_weight_headings: 300;
 $font_weight_pre: 400;
 $font_line_height_body: 1.8;
-$font_line_height_headings: 1.4;
+$font_line_height_headings: 1.2;
 $font_line_height_forms: 40px;
 $font_line_height_pre: 1.6;
 
@@ -113,6 +113,7 @@ $transistion_duration: 0.3s;
 // Border radius for buttons and other elements
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 $border_radius: 4px;
+$border_thickness: 1px;
 
 // Scroll-to-top button, size is calculated using the formula d = a * √2
 //––––––––––––––––––––––––––––––––––––––––––––––––––

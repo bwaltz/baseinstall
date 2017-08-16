@@ -39,6 +39,10 @@
 	margin-bottom: 1.5em;
 }
 
+.blog-author-date {
+	margin-top: 1rem;
+}
+
 // Post spacing for lists of posts
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 article + article {
@@ -130,7 +134,7 @@ article + article {
 .blog-feature {
 	background-color: #fff;
 	margin-bottom: $column_margin * 2;
-	border: 1px solid $color_background_lightgray;
+	border: $border_thickness solid $color_background_lightgray;
 	border-radius: $border_radius;
 	overflow: hidden;
 	// @include dropShadow;
@@ -188,6 +192,7 @@ article + article {
 	}
 
 	.blog-author-date {
+		margin-top: 0;
 		margin-bottom: 1rem;
 	}
 

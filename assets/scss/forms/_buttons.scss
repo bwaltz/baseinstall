@@ -14,20 +14,20 @@ input[type="submit"] {
 	white-space: nowrap;
 	letter-spacing: .1rem;
 	line-height: $font_line_height_forms;
-	height: $font_line_height_forms;
+	height: $font_line_height_forms + ($border_thickness * 2);
 	padding: 0 $column_margin;
 	font-weight: 300;
 	margin-bottom: 1rem;
 	@include font-size(1.4);
 	color: $button_color_text;
 	border-radius: $border_radius;
-	border: 1px solid $button_color_border;
+	border: $border_thickness solid $button_color_border;
 	transition: $transistion_duration;
 	
 	&.lg {
-		padding: 0 ($column_margin * 1.2);
-		line-height: $font_line_height_forms * 1.2;
-		height: $font_line_height_forms * 1.2;
+		padding: 0 ($column_margin * 1.25);
+		line-height: $font_line_height_forms * 1.25;
+		height: ($font_line_height_forms + ($border_thickness * 2)) * 1.25;
 	}
 
 	&:visited {

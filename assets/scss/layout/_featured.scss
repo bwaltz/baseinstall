@@ -36,7 +36,7 @@
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 .strapline {
   background: $color_background_strapline;
-  border: 1px solid lighten($button_color_border, 15%);
+  border: $border_thickness solid lighten($button_color_border, 15%);
 
   p {
     margin: 0;
