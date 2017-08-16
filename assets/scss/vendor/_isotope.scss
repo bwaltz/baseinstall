@@ -7,13 +7,13 @@
   button {
     display: inline-block;
     padding: 0;
-    margin: 10px 0;
+    margin: 0 0 $column_margin;
     background: transparent;
     border: none;
     color: #222;
     @include font-size(1.6);
     text-transform: none;
-    line-height: 24px;
+    line-height: $font_line_height_forms;
     cursor: pointer;
     border-bottom: 1px solid transparent;
     transition: border-color $transistion_duration;
