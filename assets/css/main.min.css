@@ -61,20 +61,12 @@ th{font-weight:bold}
 td{font-weight:normal}
 th:first-child,td:first-child{padding-left:0}
 th:last-child,td:last-child{padding-right:0}
-<<<<<<< HEAD
-body,button,input,select,optgroup,textarea{color:#404040;font-family:"montserratextralight",sans-serif;font-weight:400;line-height:1.8;font-size:16px;font-size:1.6rem}
-h1,h2,h3,h4,h5,h6{margin-top:0;clear:both;font-family:"montserratlight",sans-serif;font-weight:300;line-height:1.2;margin-bottom:1.5rem;word-wrap:break-word}
+body,button,input,select,optgroup,textarea{color:#404040;font-family:"montserratlight",sans-serif;font-weight:400;line-height:1.8;font-size:16px;font-size:1.6rem}
+h1,h2,h3,h4,h5,h6{margin-top:0;clear:both;font-family:"montserratlight",sans-serif;font-weight:400;line-height:1.2;margin-bottom:1.5rem;word-wrap:break-word}
 h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{text-decoration:none}
 h1{font-size:40px;font-size:4rem}
 .hero h1{margin-bottom:0}
-=======
-body,button,input,select,optgroup,textarea{color:#404040;font-family:"montserratlight",sans-serif;font-weight:400;line-height:1.8;font-size:16px;font-size:1.6rem}
-h1,h2,h3,h4,h5,h6{margin-top:0;clear:both;font-family:"montserratlight",sans-serif;font-weight:400;line-height:1.4;margin-bottom:1.5rem;word-wrap:break-word}
-h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{text-decoration:none}
-h1{font-size:40px;font-size:4rem}
-.hero h1{margin-bottom:0;line-height:1.2}
->>>>>>> origin/master
-.home h1{margin-bottom:1.5rem}
+.home h1{font-size:60px;font-size:6rem;margin-bottom:1.5rem}
 h2{font-size:30px;font-size:3rem}
 h3{font-size:24px;font-size:2.4rem}
 h4{font-size:20px;font-size:2rem}

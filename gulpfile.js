@@ -15,7 +15,7 @@
  
 // START Editing Project Variables
 var project                 = 'Base_Install'; // Project Name.
-var projectURL              = 'dev2'; // Project URL. Could be something like localhost:8888.
+var projectURL              = 'dev4'; // Project URL. Could be something like localhost:8888.
 var productURL              = './'; // Theme/Plugin URL. Leave it like it is, since our gulpfile.js lives in the root folder.
 
 // Translation related
