@@ -29,11 +29,10 @@ h1 {
 
 	.hero & {
 		margin-bottom: 0;
-<<<<<<< HEAD
 	}
 
 	.home & {
-		// @include font-size(6.0);
+		@include font-size(6.0);
 		margin-bottom: 1.5rem;
 	}
 }
@@ -46,24 +45,6 @@ h2 {
 	}
 }
 
-=======
-		line-height: 1.2;
-	}
-
-	.home & {
-		margin-bottom: 1.5rem;
-	}
-}
-
-h2 { 
-	@include font-size(3.0);
-
-	@include tablet {
-		@include font-size(3.6);
-	}
-}
-
->>>>>>> origin/master
 h3 { @include font-size(2.4); }
 h4 { @include font-size(2.0); }
 h5 { @include font-size(1.8); }
