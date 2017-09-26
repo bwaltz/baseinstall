@@ -70,13 +70,22 @@
     box-shadow: 0 0 $shadow-size 0 $shadow-outer, 0 0 $shadow-size 0 $shadow-outer;
 }
 
-// Rem output with px fallback
+// Font size rem output with px fallback
 // HTML set to 62.5% so REM measurements based on 10px sizing - basically 1.5rem = 15px
 // @include font-size(.9);
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 @mixin font-size($sizeValue: 1) {
 	font-size: ($sizeValue * $font_size_base) * 1px;
 	font-size: $sizeValue * $font_size_rem;
+}
+
+// Icon size rem output with px fallback
+// @include icon-size(.9);
+@mixin icon-size($sizeValue: 1) {
+	height: ($sizeValue * $font_size_base) * 1px;
+	height: $sizeValue * $font_size_rem;
+	width: ($sizeValue * $font_size_base) * 1px;
+	width: $sizeValue * $font_size_rem;
 }
 
 // Center block
