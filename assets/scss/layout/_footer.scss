@@ -20,24 +20,53 @@
 	display: block;
 	text-align: center;
 
-	@include phablet {
-		display: inline-block;
-		text-align: left;
-	}
+	// @include phablet {
+	// 	display: inline-block;
+	// 	text-align: left;
+	// }
 }
 
 .designer {
 	display: block;
 	text-align: center;
 
-	@include phablet {
-		display: inline-block;
-		float: right;
-		text-align: right;
-	}
+	// @include phablet {
+	// 	display: inline-block;
+	// 	float: right;
+	// 	text-align: right;
+	// }
 }
 
+.social-block {
+	text-align: center;
+	margin-top: $column_margin / 2;
 
+	a { // gives some spacing between social buttons
+		margin-right: $column_margin / 2;
+		display: inline-block;
+		@include icon-size(3.2);
+		
+		svg {
+		  height: 100%;
+		  width: 100%;
+		}
+
+		path {
+			fill: $button_color_text;
+			transition: $transistion_duration;
+		}
+
+		&:last-of-type {
+			margin-right: 0;
+		}
+
+		&:hover {
+			path {
+				fill: darken($button_color_text, 20%);
+			}
+		}
+	}
+}
 
 .footer-callout {
 	background-color: $color_background_prefooter;
