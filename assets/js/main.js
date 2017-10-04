@@ -10719,6 +10719,71 @@ function disableMobileNav() {
 }
 
 /**
+* MODAL POPUP
+* Plain JavaScript pop up window, no jQuery required
+*/
+
+
+var modal = document.getElementById('modal-block');
+
+// Get the button that opens the modal
+var btn = document.getElementById("modal-button");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+    addClass(modal, 'toggled');
+};
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+  removeClass(modal, 'toggled');
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+    removeClass(modal, 'toggled');
+  }
+};
+
+// // Find all instances of .gallery
+// var baguetteBoxGallery = document.getElementsByClassName('gallery');
+
+// // Iterate through all instances of .gallery to add .baguetteBox
+// for (var i = 0; i < baguetteBoxGallery.length; i++) {
+//     // add the unique class to eliminate conflicts with multiple galleries
+//     baguetteBoxGallery[i].classList.add("baguetteBox" + (i+1));
+// }
+
+// // Run up to 3 instances of slideshow on a single page
+// // Follow the pattern to have more or less if needed
+// var baguetteBoxOne = document.getElementsByClassName('baguetteBox1');
+// if (baguetteBoxOne.length > 0) {
+//     baguetteBox.run('.baguetteBox1');
+// }
+
+// var baguetteBoxTwo = document.getElementsByClassName('baguetteBox2');
+// if (baguetteBoxTwo.length > 0) {
+//     baguetteBox.run('.baguetteBox2');
+// }
+
+// var baguetteBoxThree = document.getElementsByClassName('baguetteBox3');
+// if (baguetteBoxThree.length > 0) {
+//     baguetteBox.run('.baguetteBox3');
+// }
+
+// var baguetteBoxFour = document.getElementsByClassName('baguetteBox4');
+// if (baguetteBoxFour.length > 0) {
+//     baguetteBox.run('.baguetteBox4');
+// }
+
+/**
 * PAGE SCROLLING
 * Plain JavaScript internal anchor and top-of-page scrolling, no jQuery required
 */
@@ -10734,139 +10799,326 @@ window.onscroll = function () {
 
 
 // handles scrolling to internal anchors and top of page
-initSmoothScrolling();
 
-function initSmoothScrolling() {
+/*jshint devel:true, asi:true */
 
-  if (isCssSmoothSCrollSupported()) {
-    document.getElementById('css-support-msg').className = 'supported';
-    return;
-  }
+/*global define, module */
 
-  var duration = 1000; // Speed of scrolling in milliseconds
 
-  var pageUrl = location.hash ?
-  stripHash(location.href) :
-  location.href;
-
-  delegatedLinkHijacking();
-  //directLinkHijacking();
-
-  function delegatedLinkHijacking() {
-    document.body.addEventListener('click', onClick, false);
-
-    function onClick(e) {
-      if (!isInPageLink(e.target))
-        return;
-
-      e.stopPropagation();
-      e.preventDefault();
-
-      jump(e.target.hash, {
-        duration: duration,
-        callback: function() {
-          setFocus(e.target.hash);
-        }
-      });
-    }
-  }
-
-  function directLinkHijacking() {
-    [].slice.call(document.querySelectorAll('a'))
-    .filter(isInPageLink)
-    .forEach(function(a) {
-      a.addEventListener('click', onClick, false);
-    });
-
-    function onClick(e) {
-      e.stopPropagation();
-      e.preventDefault();
-
-      jump(e.target.hash, {
-        duration: duration,
-      });
-    }
-
-  }
-
-  function isInPageLink(n) {
-    return n.tagName.toLowerCase() === 'a' &&
-    n.hash.length > 0 &&
-    stripHash(n.href) === pageUrl;
-  }
-
-  function stripHash(url) {
-    return url.slice(0, url.lastIndexOf('#'));
-  }
-
-  function isCssSmoothSCrollSupported() {
-    return 'scrollBehavior' in document.documentElement.style;
-  }
-
-  // Adapted from https://www.nczonline.net/blog/2013/01/15/fixing-skip-to-content-links/
-  function setFocus(hash) {
-    var element = document.getElementById(hash.substring(1));
-
-    if (element) {
-      if (!/^(?:a|select|input|button|textarea)$/i.test(element.tagName)) {
-        element.tabIndex = -1;
+(function (root, factory) {
+  if (typeof define === "function" && define.amd) {
+    define([], factory());
+  } else if (typeof module === "object" && module.exports) {
+    module.exports = factory();
+  } else {
+    (function install() {
+      // To make sure smoothScrolling can be referenced from the header, before `body` is available
+      if (document && document.body) {
+        root.smoothScrolling = factory();
+      } else {
+        // retry 9ms later
+        setTimeout(install, 9);
       }
+    })();
+  }
+}(this, function () {
+  "use strict";
 
-      element.focus();
-    }
+
+  // Detect if the browser already supports native smooth scrolling (e.g., Firefox 36+ and Chrome 49+) and it is enabled:
+  var isNativeSmoothScrollEnabledOn = function (elem) {
+    return ("getComputedStyle" in window) &&
+      window.getComputedStyle(elem)["scroll-behavior"] === "smooth";
+  };
+
+
+  // Exit if it’s not a browser environment:
+  if (typeof window === "undefined" || !("document" in window)) {
+    return {};
   }
 
-}
 
-function jump(target, options) {
-  var
-  start = window.pageYOffset,
-  opt = {
-    duration: options.duration,
-    offset: options.offset || 0,
-    callback: options.callback,
-    easing: options.easing || easeInOutQuad
-  },
-  distance = typeof target === 'string' ?
-  opt.offset + document.querySelector(target).getBoundingClientRect().top :
-  target,
-  duration = typeof opt.duration === 'function' ?
-  opt.duration(distance) :
-  opt.duration,
-  timeStart, timeElapsed;
+  var makeScroller = function (container, defaultDuration, edgeOffset) {
 
-  requestAnimationFrame(function(time) {
-    timeStart = time;
-    loop(time);
+    // Use defaults if not provided
+    defaultDuration = defaultDuration || 999; //ms
+    if (!edgeOffset && edgeOffset !== 0) {
+      // When scrolling, this amount of distance is kept from the edges of the container:
+      edgeOffset = 1; //px
+    }
+
+    // Handling the life-cycle of the scroller
+    var scrollTimeoutId;
+    var setScrollTimeoutId = function (newValue) {
+      scrollTimeoutId = newValue;
+    };
+
+    /**
+     * Stop the current smooth scroll operation immediately
+     */
+    var stopScroll = function () {
+      clearTimeout(scrollTimeoutId);
+      setScrollTimeoutId(0);
+    };
+
+    var getTopWithEdgeOffset = function (elem) {
+      return Math.max(0, container.getTopOf(elem) - edgeOffset);
+    };
+
+    /**
+     * Scrolls to a specific vertical position in the document.
+     *
+     * @param {targetY} The vertical position within the document.
+     * @param {duration} Optionally the duration of the scroll operation.
+     *        If not provided the default duration is used.
+     * @param {onDone} An optional callback function to be invoked once the scroll finished.
+     */
+    var scrollToY = function (targetY, duration, onDone) {
+      stopScroll();
+      if (duration === 0 || (duration && duration < 0) || isNativeSmoothScrollEnabledOn(container.body)) {
+        container.toY(targetY);
+        if (onDone) {
+          onDone();
+        }
+      } else {
+        var startY = container.getY();
+        var distance = Math.max(0, targetY) - startY;
+        var startTime = new Date().getTime();
+        duration = duration || Math.min(Math.abs(distance), defaultDuration);
+        (function loopScroll() {
+          setScrollTimeoutId(setTimeout(function () {
+            // Calculate percentage:
+            var p = Math.min(1, (new Date().getTime() - startTime) / duration);
+            // Calculate the absolute vertical position:
+            var y = Math.max(0, Math.floor(startY + distance*(p < 0.5 ? 2*p*p : p*(4 - p*2)-1)));
+            container.toY(y);
+            if (p < 1 && (container.getHeight() + y) < container.body.scrollHeight) {
+              loopScroll();
+            } else {
+              setTimeout(stopScroll, 99); // with cooldown time
+              if (onDone) {
+                onDone();
+              }
+            }
+          }, 9));
+        })();
+      }
+    };
+
+    /**
+     * Scrolls to the top of a specific element.
+     *
+     * @param {elem} The element to scroll to.
+     * @param {duration} Optionally the duration of the scroll operation.
+     * @param {onDone} An optional callback function to be invoked once the scroll finished.
+     */
+    var scrollToElem = function (elem, duration, onDone) {
+      scrollToY(getTopWithEdgeOffset(elem), duration, onDone);
+    };
+
+    /**
+     * Scrolls an element into view if necessary.
+     *
+     * @param {elem} The element.
+     * @param {duration} Optionally the duration of the scroll operation.
+     * @param {onDone} An optional callback function to be invoked once the scroll finished.
+     */
+    var scrollIntoView = function (elem, duration, onDone) {
+      var elemHeight = elem.getBoundingClientRect().height;
+      var elemBottom = container.getTopOf(elem) + elemHeight;
+      var containerHeight = container.getHeight();
+      var y = container.getY();
+      var containerBottom = y + containerHeight;
+      if (getTopWithEdgeOffset(elem) < y || (elemHeight + edgeOffset) > containerHeight) {
+        // Element is clipped at top or is higher than screen.
+        scrollToElem(elem, duration, onDone);
+      } else if ((elemBottom + edgeOffset) > containerBottom) {
+        // Element is clipped at the bottom.
+        scrollToY(elemBottom - containerHeight + edgeOffset, duration, onDone);
+      } else if (onDone) {
+        onDone();
+      }
+    };
+
+    /**
+     * Scrolls to the center of an element.
+     *
+     * @param {elem} The element.
+     * @param {duration} Optionally the duration of the scroll operation.
+     * @param {offset} Optionally the offset of the top of the element from the center of the screen.
+     * @param {onDone} An optional callback function to be invoked once the scroll finished.
+     */
+    var scrollToCenterOf = function (elem, duration, offset, onDone) {
+      scrollToY(Math.max(0, container.getTopOf(elem) - container.getHeight()/2 + (offset || elem.getBoundingClientRect().height/2)), duration, onDone);
+    };
+
+    /**
+     * Changes default settings for this scroller.
+     *
+     * @param {newDefaultDuration} Optionally a new value for default duration, used for each scroll method by default.
+     *        Ignored if null or undefined.
+     * @param {newEdgeOffset} Optionally a new value for the edge offset, used by each scroll method by default. Ignored if null or undefined.
+     * @returns An object with the current values.
+     */
+    var setup = function (newDefaultDuration, newEdgeOffset) {
+      if (newDefaultDuration === 0 || newDefaultDuration) {
+        defaultDuration = newDefaultDuration;
+      }
+      if (newEdgeOffset === 0 || newEdgeOffset) {
+        edgeOffset = newEdgeOffset;
+      }
+      return {
+        defaultDuration: defaultDuration,
+        edgeOffset: edgeOffset
+      };
+    };
+
+    return {
+      setup: setup,
+      to: scrollToElem,
+      toY: scrollToY,
+      intoView: scrollIntoView,
+      center: scrollToCenterOf,
+      stop: stopScroll,
+      moving: function () { return !!scrollTimeoutId; },
+      getY: container.getY,
+      getTopOf: container.getTopOf
+    };
+
+  };
+
+
+  var docElem = document.documentElement;
+  var getDocY = function () { return window.scrollY || docElem.scrollTop; };
+
+  // Create a scroller for the document:
+  var smoothScrolling = makeScroller({
+    body: document.scrollingElement || document.body,
+    toY: function (y) { window.scrollTo(0, y); },
+    getY: getDocY,
+    getHeight: function () { return window.innerHeight || docElem.clientHeight; },
+    getTopOf: function (elem) { return elem.getBoundingClientRect().top + getDocY() - docElem.offsetTop; }
   });
 
-  function loop(time) {
-    timeElapsed = time - timeStart;
 
-    window.scrollTo(0, opt.easing(timeElapsed, start, distance, duration));
+  /**
+   * Creates a scroller from the provided container element (e.g., a DIV)
+   *
+   * @param {scrollContainer} The vertical position within the document.
+   * @param {defaultDuration} Optionally a value for default duration, used for each scroll method by default.
+   *        Ignored if 0 or null or undefined.
+   * @param {edgeOffset} Optionally a value for the edge offset, used by each scroll method by default. 
+   *        Ignored if null or undefined.
+   * @returns A scroller object, similar to `smoothScrolling` but controlling the provided element.
+   */
+  smoothScrolling.createScroller = function (scrollContainer, defaultDuration, edgeOffset) {
+    return makeScroller({
+      body: scrollContainer,
+      toY: function (y) { scrollContainer.scrollTop = y; },
+      getY: function () { return scrollContainer.scrollTop; },
+      getHeight: function () { return Math.min(scrollContainer.clientHeight, window.innerHeight || docElem.clientHeight); },
+      getTopOf: function (elem) { return elem.offsetTop; }
+    }, defaultDuration, edgeOffset);
+  };
 
-    if (timeElapsed < duration)
-      requestAnimationFrame(loop);
-    else
-      end();
+
+  // Automatic link-smoothing on achors
+  // Exclude IE8- or when native is enabled or smoothScrolling auto- is disabled
+  if ("addEventListener" in window && !window.noZensmooth && !isNativeSmoothScrollEnabledOn(document.body)) {
+
+
+    var isScrollRestorationSupported = "scrollRestoration" in history;
+
+    // On first load & refresh make sure the browser restores the position first
+    if (isScrollRestorationSupported) {
+      history.scrollRestoration = "auto";
+    }
+
+    window.addEventListener("load", function () {
+
+      if (isScrollRestorationSupported) {
+        // Set it to manual
+        setTimeout(function () { history.scrollRestoration = "manual"; }, 9);
+        window.addEventListener("popstate", function (event) {
+          if (event.state && "smoothScrollingY" in event.state) {
+            smoothScrolling.toY(event.state.smoothScrollingY);
+          }
+        }, false);
+      }
+
+      // Add edge offset on first load if necessary
+      // This may not work on IE (or older computer?) as it requires more timeout, around 100 ms
+      if (window.location.hash) {
+        setTimeout(function () {
+          // Adjustment is only needed if there is an edge offset:
+          var edgeOffset = smoothScrolling.setup().edgeOffset;
+          if (edgeOffset) {
+            var targetElem = document.getElementById(window.location.href.split("#")[1]);
+            if (targetElem) {
+              var targetY = Math.max(0, smoothScrolling.getTopOf(targetElem) - edgeOffset);
+              var diff = smoothScrolling.getY() - targetY;
+              // Only do the adjustment if the browser is very close to the element:
+              if (0 <= diff && diff < 9 ) {
+                window.scrollTo(0, targetY);
+              }
+            }
+          }
+        }, 9);
+      }
+
+    }, false);
+
+    // Handling clicks on anchors
+    var RE_noZensmooth = new RegExp("(^|\\s)noZensmooth(\\s|$)");
+    window.addEventListener("click", function (event) {
+      var anchor = event.target;
+      while (anchor && anchor.tagName !== "A") {
+        anchor = anchor.parentNode;
+      }
+      // Let the browser handle the click if it wasn't with the primary button, or with some modifier keys:
+      if (!anchor || event.which !== 1 || event.shiftKey || event.metaKey || event.ctrlKey || event.altKey) {
+        return;
+      }
+      // Save the current scrolling position so it can be used for scroll restoration:
+      if (isScrollRestorationSupported) {
+        try {
+          history.replaceState({ smoothScrollingY: smoothScrolling.getY() }, "");
+        } catch (e) {
+          // Avoid the Chrome Security exception on file protocol, e.g., file://index.html
+        }
+      }
+      // Find the referenced ID:
+      var href = anchor.getAttribute("href") || "";
+      if (href.indexOf("#") === 0 && !RE_noZensmooth.test(anchor.className)) {
+        var targetY = 0;
+        var targetElem = document.getElementById(href.substring(1));
+        if (href !== "#") {
+          if (!targetElem) {
+            // Let the browser handle the click if the target ID is not found.
+            return;
+          }
+          targetY = smoothScrolling.getTopOf(targetElem);
+        }
+        event.preventDefault();
+        // By default trigger the browser's `hashchange` event...
+        var onDone = function () { window.location = href; };
+        // ...unless there is an edge offset specified
+        var edgeOffset = smoothScrolling.setup().edgeOffset;
+        if (edgeOffset) {
+          targetY = Math.max(0, targetY - edgeOffset);
+          onDone = function () { history.pushState(null, "", href); };
+        }
+        smoothScrolling.toY(targetY, null, onDone);
+      }
+    }, false);
+
   }
 
-  function end() {
-    window.scrollTo(0, start + distance);
 
-    if (typeof opt.callback === 'function')
-      opt.callback();
-  }
+  return smoothScrolling;
 
-  // Robert Penner's easeInOutQuad - http://robertpenner.com/easing/
-  function easeInOutQuad(t, b, c, d) {
-    t /= d / 2;
-    if (t < 1) return c / 2 * t * t + b;
-    t--;
-    return -c / 2 * (t * (t - 2) - 1) + b;
-  }
 
-}
+}));
 
 /**
 * STICKY NAVIGATION BAR
