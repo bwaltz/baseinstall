@@ -132,6 +132,25 @@
 					<div class="subsection">
 						<h2>Feature One</h2>
 						<p>Integer sollicitudin turpis sit amet consectetur sodales. Donec rutrum hendrerit bibendum. Mauris et elementum mauris. Cras malesuada tortor in erat bibendum, vel volutpat sem semper. Donec dui sapien, sagittis eget euismod at, tincidunt quis mauris. Fusce a tempus lacus. Aliquam rutrum accumsan mi non lobortis.</p>
+
+
+						<!-- Trigger/Open The Modal -->
+						<button id="modal-button" class="modal-button">Open Modal</button>
+
+						<!-- The Modal -->
+						<div id="modal-block" class="modal-block">
+
+							<!-- Modal content -->
+							<div class="modal-content">
+								<span class="close">&times;</span>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores itaque harum impedit alias ad non hic quos voluptates deserunt natus, dolorum, odio vero commodi ab nisi nemo facere quo atque.</p>
+							</div>
+
+						</div>
+
+
+
+
 					</div>
 				</div>
 
