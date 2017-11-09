@@ -12,7 +12,8 @@
 class baseinstall_walker_nav_menu extends Walker_Nav_Menu {
 
 	// add classes to ul sub-menus
-	function start_lvl( &$output, $depth ) {
+	// function start_lvl( &$output, $depth ) {
+	function start_lvl( &$output, $depth = 0, $args = array() ) {
 	    // depth dependent classes
 	    $indent = ( $depth > 0  ? str_repeat( "\t", $depth ) : '' ); // code indent
 	    $display_depth = ( $depth + 1); // because it counts the first submenu as 0
@@ -29,7 +30,8 @@ class baseinstall_walker_nav_menu extends Walker_Nav_Menu {
 	}
 	
 	// add main/sub classes to li and links
-	function start_el( &$output, $item, $depth, $args ) {
+	// function start_el( &$output, $item, $depth, $args ) {
+	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 	    global $wp_query;
 	    $indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent
 	  
