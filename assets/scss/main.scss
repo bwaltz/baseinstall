@@ -23,11 +23,16 @@
 @import "forms/forms";
 @import "forms/buttons";
 
-// NAVIGATION MENU, SCROLLUP, LINKS
+// NAVIGATION MENU, MOBILE HAMBURGER TOGGLE
 //––––––––––––––––––––––––––––––––––––––––––––––––––
-@import "navigation/navigation";
+// @import "navigation/hamburger"; // default menu toggle styles
+// @import "navigation/navigation"; // default top mobile navigation styles
+@import "navigation/navigation_offcanvas"; // off-canvas side mobile navigation styles
+@import "navigation/hamburger_offcanvas"; // off-canvas side mobile toggle styles
+
+// PAGINATION, SCROLLUP, LINKS
+//––––––––––––––––––––––––––––––––––––––––––––––––––
 @import "navigation/pagination";
-@import "navigation/hamburger";
 @import "navigation/scrollup";
 @import "navigation/links";
 
