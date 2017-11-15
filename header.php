@@ -22,7 +22,11 @@
 		<button class="menu-toggle" tabindex="0" aria-label="Menu" aria-controls="primary-menu"><?php esc_html_e( 'Menu', 'baseinstall' ); ?><span>toggle menu</span></button>
 
 		<nav id="site-navigation" class="main-navigation">
-			<h3 class="screen-reader-text">Main Navigation</h3>
+			<h3 class="screen-reader-text">Main Menu</h3>
+
+			<?php // button for dismissing off-canvas mobile nav, delete if not needed ?>
+			<button class="menu-dismiss" tabindex="0" aria-label="Menu" aria-controls="primary-menu"><span>dismiss menu</span></button>
+
 			<?php 
 				wp_nav_menu( array(
 				'theme_location'	=> 'menu-1',
