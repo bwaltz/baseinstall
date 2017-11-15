@@ -33,7 +33,7 @@ section:focus {
 	text-transform: uppercase;
 	box-sizing: border-box;
 	position: fixed;
-	z-index: 5;
+	z-index: 5000;
 	cursor: pointer;
 	right: $chevronWidth;
 	bottom: $chevronWidth;
