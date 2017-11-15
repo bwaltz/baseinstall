@@ -4,13 +4,13 @@ $menu_toggle_height: $header_height;       // height of button area
 $menu_toggle_bar: 2px;                    // thickness of button bars
 $menu_toggle_pad: 0;   // left/right padding between button area and bars.
 $menu_toggle_bar_space: 7px;              // spacing between button bars
-
+$menu_toggle_color: #404040;
 
 // menu-toggle
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 button.menu-toggle {
   display: block;
-  z-index: 9000;
+  z-index: 20;
   overflow: hidden;
   margin: 0;
   padding: 0;
@@ -47,22 +47,13 @@ button.menu-toggle {
   }
 
   // active state, i.e. menu open 
-  &.is-active {
-    // background-color: $menu-color;
-    // background-color: red;
-    // border-radius: $global-radius;
-    // @include dropShadow;
-  }
-
   &.is-active span {
     // background-color: lighten(pink, 15%);
-    background-color: teal;
     transform: rotate(-225deg);
   }
 
   &.is-active span::before {
     // background-color: lighten(pink, 15%);
-    background-color: teal;
     top: 0;
     transform: rotate(90deg);
   }
@@ -86,7 +77,7 @@ button.menu-toggle {
     left: $menu_toggle_pad;
     right: $menu_toggle_pad;
     height: $menu_toggle_bar;
-    background-color: #000;
+    background-color: $menu_toggle_color;
     transition-duration: $transistion_duration;
     // transition-delay: $transistion_duration;
 
@@ -97,7 +88,7 @@ button.menu-toggle {
       left: 0;
       width: 100%;
       height: $menu_toggle_bar;
-      background-color: #000;
+      background-color: $menu_toggle_color;
       content: "";
       transition-duration: $transistion_duration;
       // transition-delay: $transistion_duration;
@@ -114,8 +105,5 @@ button.menu-toggle {
     }
   }
 }
-
-
-
 
 
