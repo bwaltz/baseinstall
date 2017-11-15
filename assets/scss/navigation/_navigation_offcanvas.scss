@@ -37,6 +37,15 @@ $sideNavBgColor: $color_background_header;
 	height: 100vh;
 	z-index: 100;
 
+	// offset for being logged in to wp-admin
+	.admin-bar & {
+		top: $wp_adminbar_sm;
+
+		@include wpadmin {
+			top: $wp_adminbar_lg;
+		}
+	}
+
 	// @include dropShadow;
 	background: $sideNavBgColor;
 

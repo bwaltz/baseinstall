@@ -125,6 +125,7 @@ input:-webkit-autofill{-webkit-animation-name:autofill;-webkit-animation-fill-mo
 .more-link{margin-bottom:2rem}
 .more-link:visited{color:#404040}
 .main-navigation{clear:both;display:block;float:none;position:fixed;right:0;top:0;height:100vh;z-index:100;background:rgba(255,255,255,0.95);-webkit-transition:right .3s ease;transition:right .3s ease;width:280px;right:-280px;overflow-y:scroll;-webkit-overflow-scrolling:touch}
+.admin-bar .main-navigation{top:46px}
 .main-navigation::-webkit-scrollbar{width:0;height:0}
 .main-navigation.toggled{right:0}
 .main-navigation:before{display:block;content:'Main Menu';line-height:60px;padding:0 20px}
@@ -422,7 +423,8 @@ pre>code.highlight{outline:.4em solid #bf616a;outline-offset:.4em}
 .sm-10{width:83.3333333333%}
 .sm-11{width:91.6666666667%}
 .sm-12{width:100%}
-}@media(min-width:783px){.admin-bar .site{padding-top:32px}
+}@media(min-width:783px){.admin-bar .main-navigation{top:32px}
+.admin-bar .site{padding-top:32px}
 .admin-bar .scroll-anchor:before{margin-top:-52px;height:52px}
 }@media(min-width:800px){h1{font-size:48px;font-size:4.8rem}
 h2{font-size:36px;font-size:3.6rem}
