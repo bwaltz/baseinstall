@@ -7,11 +7,14 @@
     background: linear-gradient($color_hero_overlay, $color_hero_overlay), url('../img/hero.jpg'); // use this path if you're enqueing styles from assets/css
     min-height: 22rem;
     height: 40vh;
-    border: none;
+
+    border: none;    
+    // border-bottom: 1px solid darken($color_background_header, 5%);
+    
     text-align: left;
     
     @include bgImage;
-    @include innerShadow;
+    // @include innerShadow;
 
     // @include tablet {
     //     height:20vh;
