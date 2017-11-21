@@ -12,11 +12,15 @@
 ?>
 
 <header id="masthead" class="site-header">
-	<div class="site-navbar">
+	<div class="site-navbar <?php if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) { echo 'has-logo'; } ?>">
 
 		<div class="site-branding">
-			<?php the_custom_logo(); ?>
-			<span class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
+			<?php /* gets custom logo if selected, otherwise displays site title */ ?>
+			<?php if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) : ?>
+				<?php the_custom_logo(); ?>
+			<?php else : ?> 
+				<span class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
+			<?php endif; ?>
 		</div>
 
 		<button class="menu-toggle" tabindex="0" aria-label="Menu" aria-controls="primary-menu"><?php esc_html_e( 'Menu', 'baseinstall' ); ?><span>toggle menu</span></button>

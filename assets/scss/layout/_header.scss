@@ -30,12 +30,31 @@
 
 .site-navbar {
 	@extend .container; // keeps navbar content lined up with body content
+	
+	&.has-logo {
+		line-height: 0; // eliminates gap below img if logo is present
+	}
 }
 
 // site title and description
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 .site-branding { 
 	display: inline-block;
+
+	// Make sure logo link wraps around logo image
+	a {
+		display: inline-block;
+		// color: $color_mdgray;
+	}
+
+	img {
+		display: block;
+		width: auto;
+		vertical-align: middle;
+		height: $header_height;
+		padding: ($header_height / 6) 0; // add some space above and below logo image
+		// filter: brightness(0) invert(1); // make image white
+	}
 }
 
 // site title only
