@@ -254,7 +254,10 @@ article+article{border-top:1px solid #eee;padding-top:40px}
 .xs-12{width:100%}
 .container:after,.site-content:after,.site-navbar:after,.site-info:after,.row:after{content:"";display:table;table-layout:fixed;clear:both}
 .site-header{background-color:rgba(255,255,255,0.95);position:relative;top:0;width:100%;z-index:10}
+.site-navbar.has-logo{line-height:0}
 .site-branding{display:inline-block}
+.site-branding a{display:inline-block}
+.site-branding img{display:block;width:auto;vertical-align:middle;height:60px;padding:10px 0}
 .site-title{font-family:"montserratlight",sans-serif;line-height:60px;font-size:20px;font-size:2rem;letter-spacing:-.1rem}
 .site-title a{text-decoration:none}
 .site{padding:0}
