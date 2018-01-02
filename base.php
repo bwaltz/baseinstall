@@ -100,6 +100,9 @@
 						<?php get_template_part('template-parts/strapline'); // strapline section ?>
 						<?php include baseinstall_template_path(); ?>
 
+					<?php elseif ( is_page_template( 'full-width.php' ) ) : ?>
+						<?php include baseinstall_template_path(); ?>
+
 					<?php else : // all other pages ?>
 						<div class="site-content">
 							<div id="primary" class="content-area">
