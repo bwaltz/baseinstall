@@ -44,6 +44,10 @@ $sideNavBgColor: $color_background_header;
 		@include wpadmin {
 			top: $wp_adminbar_lg;
 		}
+
+		@include laptop {
+			top: 0;
+		}
 	}
 
 	// @include dropShadow;
