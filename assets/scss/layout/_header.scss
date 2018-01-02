@@ -53,6 +53,7 @@
 		vertical-align: middle;
 		height: $header_height;
 		padding: ($header_height / 6) 0; // add some space above and below logo image
+		margin: 0;
 		// filter: brightness(0) invert(1); // make image white
 	}
 }
