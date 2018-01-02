@@ -257,7 +257,7 @@ article+article{border-top:1px solid #eee;padding-top:40px}
 .site-navbar.has-logo{line-height:0}
 .site-branding{display:inline-block}
 .site-branding a{display:inline-block}
-.site-branding img{display:block;width:auto;vertical-align:middle;height:60px;padding:10px 0}
+.site-branding img{display:block;width:auto;vertical-align:middle;height:60px;padding:10px 0;margin:0}
 .site-title{font-family:"montserratlight",sans-serif;line-height:60px;font-size:20px;font-size:2rem;letter-spacing:-.1rem}
 .site-title a{text-decoration:none}
 .site{padding:0}
@@ -454,7 +454,8 @@ h2{font-size:36px;font-size:3.6rem}
 .site-footer{clear:both;width:100%}
 .footer-callout p{margin-bottom:0;line-height:40px}
 .footer-callout .button,.footer-callout .more-link{display:block}
-}@media(min-width:1000px){.main-navigation{height:60px;overflow:visible;right:auto;position:relative;display:inline-block;float:right;width:auto;margin-right:-10px}
+}@media(min-width:1000px){.admin-bar .main-navigation{top:0}
+.main-navigation{height:60px;overflow:visible;right:auto;position:relative;display:inline-block;float:right;width:auto;margin-right:-10px}
 .main-navigation:before{display:none}
 .main-navigation ul{max-height:inherit;overflow:visible}
 .main-navigation ul ul{float:left;position:absolute;top:60px;left:-999em;z-index:99999}
