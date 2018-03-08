@@ -444,7 +444,7 @@ window.onclick = function(event) {
 						</div>
 					</div>
 				</div>
-				<?php endwhile; ?>
+            	<?php endwhile; wp_reset_postdata(); ?>
 			</div>
 			<?php echo '<a class="button button-primary" href="' . get_permalink( get_option( 'page_for_posts' ) ) . '">View More Posts</a>'; ?>
 		</div>
