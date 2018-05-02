@@ -178,6 +178,7 @@ return jQueryBridget;
 
 
 
+"use strict";
 function EvEmitter() {}
 
 var proto = EvEmitter.prototype;
@@ -562,6 +563,7 @@ return getSize;
 
 
 
+"use strict";
 var utils = {};
 
 // ----- extend ----- //
@@ -2534,6 +2536,7 @@ return Item;
 // -------------------------- masonryDefinition -------------------------- //
 
   // create an Outlayer layout class
+  "use strict";
   var Masonry = Outlayer.create('masonry');
   // isFitWidth -> fitWidth
   Masonry.compatOptions.fitWidth = 'isFitWidth';
@@ -2999,6 +3002,7 @@ return Vertical;
 
 // -------------------------- vars -------------------------- //
 
+"use strict";
 var jQuery = window.jQuery;
 
 // -------------------------- helpers -------------------------- //
