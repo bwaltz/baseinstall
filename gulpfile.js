@@ -311,9 +311,10 @@ gulp.task( 'translate', function () {
 
 // WATCH TASK
 // Watch files for changes and reload
-gulp.task( 'default', ['styles', 'login-styles', 'scripts', 'images', 'browser-sync'], function () {
+gulp.task( 'default', gulp.series(gulp.parallel('styles', 'login-styles', 'scripts', 'images', 'browser-sync'), function () {
   gulp.watch( projectPHPWatchFiles, reload ); // Reload on PHP file changes.
   gulp.watch( styleWatchFiles, [ 'styles' ] ); // Reload on SCSS file changes.
   gulp.watch( styleAdminWatchFiles, [ 'login-styles' ] ); // Reload on SCSS file changes.
   gulp.watch( scriptJSWatchFiles, [ 'scripts', reload ] ); // Reload on scripts file changes.
-});
+}));
+
