@@ -1,0 +1,14 @@
+{
+    "name": "bwaltz/baseinstall",
+    "description": "Base Install",
+    "type": "wordpress-theme",
+    "keywords": [
+        "wordpress"
+    ],
+    "authors": [
+        {
+            "name": "Brandon Waltz",
+            "email": "brandon.waltz@colby.edu"
+        }
+    ]
+}
