@@ -97,7 +97,7 @@
 						</div>
 
 					<?php elseif ( is_front_page() ) : // if front page is set to show static page, get front-page.php markup ?>
-						<?php get_template_part('template-parts/strapline'); // strapline section ?>
+						<?php //get_template_part('template-parts/strapline'); // strapline section ?>
 						<?php include baseinstall_template_path(); ?>
 
 					<?php elseif ( is_page_template( 'full-width.php' ) ) : ?>
