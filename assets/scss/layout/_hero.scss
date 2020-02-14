@@ -4,15 +4,15 @@
     position: relative;
     background-color: $color_background_hero;
     // background: linear-gradient($color_hero_overlay, $color_hero_overlay), url('./assets/img/hero.jpg'); // use this path if you're enqueing styles from root folder
-    background: linear-gradient($color_hero_overlay, $color_hero_overlay), url('../img/hero.jpg'); // use this path if you're enqueing styles from assets/css
+    background: linear-gradient($color_hero_overlay, rgba(0, 40, 120, 0.8)), url('../img/hero.jpg'); // use this path if you're enqueing styles from assets/css
     min-height: 22rem;
     height: 40vh;
 
-    border: none;    
+    border: none;
     // border-bottom: 1px solid darken($color_background_header, 5%);
-    
+
     text-align: left;
-    
+
     @include bgImage;
     // @include innerShadow;
 
@@ -21,7 +21,7 @@
     // }
 
     // full-height header for homepage and single blog posts
-    // .single &, 
+    // .single &,
     .home & {
         min-height: 48rem;
         // height:100vh;
@@ -29,17 +29,17 @@
     }
 
     // adjust for admin bar when logged in
-    // .home.single &,  
+    // .home.single &,
     .home.admin-bar & {
         height: calc(100vh - 92px); // 32px admin bar + 60px header = 92px
     }
 }
 
 .heading {
-    position:absolute;
-    top:50%;
-    width:100%;
-    transform: translate(0,-50%); // vertically center hero text
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translate(0, -50%); // vertically center hero text
 
     // .single &, // single blog posts
     // .home & {
